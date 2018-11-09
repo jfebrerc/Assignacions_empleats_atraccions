@@ -18,6 +18,7 @@ public class Alta_empleats {
         frame_menuAltaEmpleats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame_menuAltaEmpleats.pack();
         frame_menuAltaEmpleats.setVisible(true);
+        System.out.print("testtttttttttt");
     }
 
     public static void mostar_menu_alta_empleats(){
