@@ -19,5 +19,9 @@ public class Alta_empleats {
         frame_menuAltaEmpleats.pack();
         frame_menuAltaEmpleats.setVisible(true);
     }
+
+    public static void mostar_menu_alta_empleats(){
+        frame_menuAltaEmpleats.setVisible(true);
+    }
 }
 
