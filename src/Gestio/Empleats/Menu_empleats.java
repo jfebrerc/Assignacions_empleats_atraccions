@@ -24,6 +24,13 @@ public class Menu_empleats {
                 Main.main.mostrar_menu_principal();
             }
         });
+        registrarEmpleatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame_menuEmpleats.setVisible(false);
+                Gestio.Empleats.Alta_empleats.Menu_alta_empleats();
+            }
+        });
     }
 
     public static void Menu_empleats(){

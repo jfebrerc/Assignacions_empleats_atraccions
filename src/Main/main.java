@@ -17,8 +17,8 @@ public class main {
         gestioEmpleatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Gestio.Empleats.Menu_empleats.Menu_empleats();
                 frame_main.setVisible(false);
+                Gestio.Empleats.Menu_empleats.Menu_empleats();
             }
         });
     }
