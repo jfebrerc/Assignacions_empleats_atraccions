@@ -31,7 +31,7 @@ public class Empleat extends Persona { //Comentaris al marge per als atributs
     public String getDataFinalContracte(){
         return dataFinalContracte;
     }
-    public String getIban(){
+    public String getNomina(){
         return nomina;
     }
 

@@ -46,9 +46,24 @@ public class Alta_empleats {
                         Persona.arrayPersones[Persona.getContador()].setNom(empleat_nom.getText());
                         Persona.arrayPersones[Persona.getContador()].setCognom1(empleat_cognoms.getText());
                         Persona.arrayPersones[Persona.getContador()].setDNI(empleats_dni.getText());
-                        ((Empleat) Persona.arrayPersones[Persona.getContador()]).setNomina(empleats_nomina.getText()); //Nomina empleat
+                        ((Empleat) Persona.arrayPersones[Persona.getContador()]).setNomina(empleats_nomina.getText());
                         Persona.augmentarPersona();
                         IO.imprimirTI("Se ha registrat un empleat");
+
+                        JOptionPane.showMessageDialog(frame_menuAltaEmpleats, "Empleat donat de alta correctament");
+                        frame_menuAltaEmpleats.setVisible(false);
+                        Gestio.Empleats.Menu_empleats.mostar_menu_empleats();
+
+
+                        IO.imprimirTI("-------------------------------------------------------------------------");
+
+                        /** IMPRIMIR EMPLEATS (PERSONES) */
+                        for (int i=0; i<Persona.getContador(); i++){
+                            IO.imprimirTI(Persona.arrayPersones[i].getNom());
+                            IO.imprimirTI(Persona.arrayPersones[i].getCognom1());
+                            IO.imprimirTI(Persona.arrayPersones[i].getDNI());
+                            IO.imprimirTI(((Empleat)Persona.arrayPersones[i]).getNomina());
+                        }
 
                     }catch (Exception ex){
                         IO.imprimirTI("Error al introduir un empleat " + ex);
