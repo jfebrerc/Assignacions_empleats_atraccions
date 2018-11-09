@@ -4,13 +4,15 @@ package Clases;
 
 public class Persona {
     private static int contador = 0;
-    private static final int TOTAL_PERSONES = 1000;
+    private static int MAXIM_PERSONES = 1000;
+    public static Persona[] arrayPersones = new Persona[MAXIM_PERSONES];
     /* Atributs */
-    protected String nom;
-    protected String cognom1;
-    protected String cognom2;
-    protected String id;
-    protected String passwd;
+    private String nom;
+    private String cognom1;
+    private String cognom2;
+    private String id;
+    private String passwd;
+    private String DNI;
 
     /** CONSTRUCTOR */
     public Persona() {
@@ -45,6 +47,14 @@ public class Persona {
         passwd = pwd;
     }
 
+    public void setDNI(String dnix){
+        DNI = dnix;
+    }
+
+    public void setContador(int n){
+        contador = contador + n;
+    }
+
     /** GETTERS */
     public String getCognom2() {
         return cognom2;
@@ -58,15 +68,26 @@ public class Persona {
         return passwd;
     }
 
-    public int getContador(){
+    public static int getContador(){
         return contador;
     }
 
+    public static int getMaximPersones(){
+        return MAXIM_PERSONES;
+    }
+
+    public String getDNI(){
+        return DNI;
+    }
 
     /** METODES */
-    public int augmentarPersones(int n){
+    public static int augmentarPersones(int n){
         contador = contador + n;
         return contador;
+    }
+
+    public static void augmentarPersona(){
+        contador = contador +1;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Gestio.Empleats;
 
+import Clases.Persona;
 import Main.main;
 
 import javax.swing.*;
@@ -38,6 +39,8 @@ public class Menu_empleats {
         frame_menuEmpleats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame_menuEmpleats.pack();
         frame_menuEmpleats.setVisible(true);
+        frame_menuEmpleats.setLocationRelativeTo(null);
+
     }
 
     public static void mostar_menu_empleats(){

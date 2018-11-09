@@ -9,7 +9,7 @@ public class Empleat extends Persona { //Comentaris al marge per als atributs
     private String carrec;
     private String dataContracte;
     private String dataFinalContracte;
-    private String iban;
+    private String nomina;
 
     public Empleat() {
         super();
@@ -32,7 +32,7 @@ public class Empleat extends Persona { //Comentaris al marge per als atributs
         return dataFinalContracte;
     }
     public String getIban(){
-        return iban;
+        return nomina;
     }
 
     /** SETTERS */
@@ -51,8 +51,8 @@ public class Empleat extends Persona { //Comentaris al marge per als atributs
     public void setDataFinalContracte (String s){
         dataFinalContracte = s;
     }
-    public void setIban(String s){
-        iban = s;
+    public void setNomina(String s){
+        nomina = s;
     }
 
     /** METODES */
