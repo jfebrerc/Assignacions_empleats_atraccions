@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignacions empleats-atraccions:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignacions_empleats_atraccions_jar</output-path>
+    <root id="archive" name="Assignacions empleats-atraccions.jar">
+      <element id="module-output" name="Assignacions empleats-atraccions" />
+    </root>
+  </artifact>
+</component>
