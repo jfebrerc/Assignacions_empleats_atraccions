@@ -18,9 +18,6 @@ public class Persona {
     public Persona() {
     }
 
-    public String getNom() {
-        return nom;
-    }
 
     /** SETTERS */
     public void setNom(String n) {
@@ -29,10 +26,6 @@ public class Persona {
 
     public void setCognom1(String c1) {
         cognom1 = c1;
-    }
-
-    public String getCognom1() {
-        return cognom1;
     }
 
     public void setCognom2(String c2) {
@@ -56,6 +49,14 @@ public class Persona {
     }
 
     /** GETTERS */
+    public String getNom() {
+        return nom;
+    }
+
+    public String getCognom1() {
+        return cognom1;
+    }
+
     public String getCognom2() {
         return cognom2;
     }
