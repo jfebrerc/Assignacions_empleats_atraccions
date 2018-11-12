@@ -39,6 +39,7 @@ public class Alta_empleats {
             public void actionPerformed(ActionEvent e) {
 
                 if (empleat_nom.getText().isEmpty() || empleat_cognoms.getText().isEmpty() || empleats_dni.getText().isEmpty() || empleats_nomina.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(frame_menuAltaEmpleats, "Error: Hi ha algun camp per omplir");
                     IO.imprimirTI("Se ha intentat registrar un empleat en algun camp buit");
                 }else {
                     try{
@@ -66,6 +67,7 @@ public class Alta_empleats {
                         }
 
                     }catch (Exception ex){
+                        JOptionPane.showMessageDialog(frame_menuAltaEmpleats, "Error: S'ha produit algun tipus d'error al introduir un empleat, si tens mes problemes fica't amb contacte amb l'administrador");
                         IO.imprimirTI("Error al introduir un empleat " + ex);
                     }
                 }
