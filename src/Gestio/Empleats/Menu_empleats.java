@@ -32,6 +32,13 @@ public class Menu_empleats {
                 Gestio.Empleats.Alta_empleats.Menu_alta_empleats();
             }
         });
+        llistarEmpleatsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame_menuEmpleats.setVisible(false);
+                Gestio.Empleats.Llista_empleats.Menu_llista_empleats();
+            }
+        });
     }
 
     public static void Menu_empleats(){
