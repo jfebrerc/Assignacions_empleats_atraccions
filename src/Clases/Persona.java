@@ -93,7 +93,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        String imprimir = getNom();
+        String imprimir = getNom() + " " + getCognom1() + " " + getDNI();
         return imprimir;
     }
 }

@@ -59,7 +59,7 @@ public class Empleat extends Persona { //Comentaris al marge per als atributs
 
     @Override
     public String toString() {
-        String imprimir = getNom();
+        String imprimir = getNom() + " " + getCognom1() + " " + getDNI() + " " + getNomina();
         return imprimir;
     }
 
