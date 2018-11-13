@@ -29,7 +29,9 @@ public class Modificar_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 DefaultListModel d1m = new DefaultListModel();
                 for (int j = 0; j< Persona.getContador(); j++){
-                    d1m.addElement(Persona.arrayPersones[j]);
+                    if (Persona.arrayPersones[j] instanceof Empleat) {
+                        d1m.addElement(Persona.arrayPersones[j]);
+                    }
                 }
                 Jlist3.setModel(d1m);
             }

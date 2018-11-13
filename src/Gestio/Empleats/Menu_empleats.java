@@ -31,8 +31,12 @@ public class Menu_empleats {
         registrarEmpleatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame_menuEmpleats.setVisible(false);
-                Gestio.Empleats.Alta_empleats.Menu_alta_empleats();
+                if (Persona.getContador()>=Persona.getMaximPersones()){
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "No es poden afegir mes usuaris, fica't en contacte amb el administrador");
+                }else{
+                    frame_menuEmpleats.setVisible(false);
+                    Gestio.Empleats.Alta_empleats.Menu_alta_empleats();
+                }
             }
         });
         llistarEmpleatsButton.addActionListener(new ActionListener() {
@@ -59,21 +63,24 @@ public class Menu_empleats {
         testButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    for (int i=0; i<3;i++){
-                        Persona.arrayPersones[i] = new Empleat();
-                        Persona.arrayPersones[i].setNom("nom"+(i+1));
-                        Persona.arrayPersones[i].setCognom1("cognom"+(i+1));
-                        Persona.arrayPersones[i].setDNI("dni"+(i+1));
-                        ((Empleat) Persona.arrayPersones[i]).setNomina("nomina"+(i+1));
-                        Persona.augmentarPersona();
-                        IO.imprimirTI(Persona.arrayPersones[i].toString());
+                if (Persona.getContador()-3>=Persona.getMaximPersones()){
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "No es poden afegir mes usuaris, fica't en contacte amb el administrador");
+                }else{
+                    try{
+                        for (int i=0; i<3;i++){
+                            Persona.arrayPersones[i] = new Empleat();
+                            Persona.arrayPersones[i].setNom("nom"+(i+1));
+                            Persona.arrayPersones[i].setCognom1("cognom"+(i+1));
+                            Persona.arrayPersones[i].setDNI("dni"+(i+1));
+                            ((Empleat) Persona.arrayPersones[i]).setNomina("nomina"+(i+1));
+                            Persona.augmentarPersona();
+                            IO.imprimirTI(Persona.arrayPersones[i].toString());
+                        }
+                        JOptionPane.showMessageDialog(frame_menuEmpleats, "Empleats de prova carregats correctament");
+                    }catch (Exception error){
+                        IO.imprimirTI("Error: " + error);
                     }
-                    JOptionPane.showMessageDialog(frame_menuEmpleats, "Empleats de prova carregats correctament");
-                }catch (Exception error){
-                    IO.imprimirTI("Error: " + error);
                 }
-
             }
         });
     }
