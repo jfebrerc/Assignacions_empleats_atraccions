@@ -1,9 +1,11 @@
 package Gestio.Empleats;
 
 import Biblioteques.IO;
+import Clases.Empleat;
 import Clases.Persona;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,6 +14,7 @@ public class Llista_empleats extends javax.swing.JFrame{
     private JList jList1;
     private JButton llistarButton;
     private JButton cancelarButton;
+    private JTable tablaEmpleats;
     private static JFrame frame_llistaEmpleats = new JFrame("llistaEmpleats");
 
     public static void Menu_llista_empleats(){

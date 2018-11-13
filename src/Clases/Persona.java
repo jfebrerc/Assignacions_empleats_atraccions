@@ -80,11 +80,6 @@ public class Persona {
     }
 
     /** METODES */
-    public static int augmentarPersones(int n){
-        contador = contador + n;
-        return contador;
-    }
-
     public static void augmentarPersona(){
         contador = contador +1;
     }
@@ -99,3 +94,7 @@ public class Persona {
         return imprimir;
     }
 }
+//AFEGIR ID
+//CLASSE ARRAYS
+//MAXIM ARRAY
+//COMPROVAR SI ES EMPLEAT
