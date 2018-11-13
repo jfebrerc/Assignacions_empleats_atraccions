@@ -89,6 +89,10 @@ public class Persona {
         contador = contador +1;
     }
 
+    public static void eliminarPersona(){
+        contador = contador -1;
+    }
+
     @Override
     public String toString() {
         String imprimir = getNom() + " " + getCognom1() + " " + getDNI();

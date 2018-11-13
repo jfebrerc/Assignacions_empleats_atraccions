@@ -36,12 +36,32 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 JButton eliminarButton = new JButton("Eliminar");
                 getContentPane().add(eliminarButton);
-                IO.imprimirTI("Seleccio:");
                 indices= jList2.getSelectedIndices();
-                for(empleat=0;empleat<indices.length;empleat++){
-                    IO.imprimirTI("Empleats eliminats: " + indices[empleat]);
-                    //ELIMINAR EMPLEATS
+                if (Persona.getContador()<=0){
+                    JOptionPane.showMessageDialog(frame_eliminarEmpleats, "No hi han empleats a eliminar");
+                }else{
+                    try{
+
+                        for(empleat=0;empleat<indices.length;empleat++){
+                            IO.imprimirTI("Index empleats: " + indices[empleat]);
+                            for ( int i = indices[empleat] ; i < Persona.getContador() - 1 ; i++ )
+                            {
+                                Persona.arrayPersones[ i ] = Persona.arrayPersones[ i + 1 ] ;
+                            }
+                            IO.imprimirTI("Empleat eliminat.");
+                            Persona.eliminarPersona();
+                        }
+                        JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
+                        DefaultListModel d1m = new DefaultListModel();
+                        for (int j = 0; j< Persona.getContador(); j++){
+                            d1m.addElement(Persona.arrayPersones[j]);
+                        }
+                        jList2.setModel(d1m);
+                    }catch (Exception error){
+                        IO.imprimirTI("Error: " + error);
+                    }
                 }
+
             }
         });
         cancelarButton.addActionListener(new ActionListener() {

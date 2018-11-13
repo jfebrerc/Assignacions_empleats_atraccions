@@ -49,13 +49,6 @@ public class Llista_empleats extends javax.swing.JFrame{
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*JButton cancelarButton = new JButton("Cancelar");
-                getContentPane().add(cancelarButton);
-                IO.imprimirTI("Seleccio:");
-                int [] indices= jList1.getSelectedIndices();
-                for(int i=0;i<indices.length;i++){
-                    IO.imprimirTI("asdfs" + indices[i]);
-                }*/
                 frame_llistaEmpleats.setVisible(false);
                 Menu_empleats.mostar_menu_empleats();
             }
