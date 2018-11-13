@@ -17,6 +17,8 @@ public class Eliminar_empleats extends javax.swing.JFrame{
     private JButton eliminarButton;
     private JButton cancelarButton;
     private static JFrame frame_eliminarEmpleats = new JFrame("eliminarEmpleats");
+    private int empleat;
+    private int [] indices;
 
     public Eliminar_empleats() {
         llistarButton.addActionListener(new ActionListener() {
@@ -24,7 +26,7 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 DefaultListModel d1m = new DefaultListModel();
                 for (int j = 0; j< Persona.getContador(); j++){
-                    d1m.addElement(j+1 + " " + Persona.arrayPersones[j]);
+                    d1m.addElement(Persona.arrayPersones[j]);
                 }
                 jList2.setModel(d1m);
             }
@@ -35,9 +37,9 @@ public class Eliminar_empleats extends javax.swing.JFrame{
                 JButton eliminarButton = new JButton("Eliminar");
                 getContentPane().add(eliminarButton);
                 IO.imprimirTI("Seleccio:");
-                int [] indices= jList2.getSelectedIndices();
-                for(int i=0;i<indices.length;i++){
-                    IO.imprimirTI("Empleats eliminats: " + indices[i]);
+                indices= jList2.getSelectedIndices();
+                for(empleat=0;empleat<indices.length;empleat++){
+                    IO.imprimirTI("Empleats eliminats: " + indices[empleat]);
                     //ELIMINAR EMPLEATS
                 }
             }
