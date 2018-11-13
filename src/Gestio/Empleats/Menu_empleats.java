@@ -46,6 +46,13 @@ public class Menu_empleats {
                 Gestio.Empleats.Eliminar_empleats.Menu_eliminar_empleats();
             }
         });
+        modificarEmpleatsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame_menuEmpleats.setVisible(false);
+                Gestio.Empleats.Modificar_empleats.Menu_modificar_empleats();
+            }
+        });
     }
 
     public static void Menu_empleats(){

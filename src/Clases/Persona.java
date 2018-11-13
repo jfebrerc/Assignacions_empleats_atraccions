@@ -49,9 +49,7 @@ public class Persona {
     }
 
     /** GETTERS */
-    public String getNom() {
-        return nom;
-    }
+    public String getNom() { return nom; }
 
     public String getCognom1() {
         return cognom1;
