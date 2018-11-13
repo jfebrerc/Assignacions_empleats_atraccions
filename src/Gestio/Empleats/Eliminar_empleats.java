@@ -25,9 +25,13 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 DefaultListModel d1m = new DefaultListModel();
+                String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
+                String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+                d1m.addElement(titol_columna);
+                d1m.addElement(divisor);
                 for (int j = 0; j< Persona.getContador(); j++){
                     if (Persona.arrayPersones[j] instanceof Empleat) {
-                        d1m.addElement(Persona.arrayPersones[j]);
+                        d1m.addElement(Persona.arrayPersones[j].toString());
                     }
                 }
                 jList2.setModel(d1m);
@@ -54,9 +58,12 @@ public class Eliminar_empleats extends javax.swing.JFrame{
                             Persona.eliminarPersona();
                         }
                         JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
+
                         DefaultListModel d1m = new DefaultListModel();
                         for (int j = 0; j< Persona.getContador(); j++){
-                            d1m.addElement(Persona.arrayPersones[j]);
+                            if (Persona.arrayPersones[j] instanceof Empleat) {
+                                d1m.addElement(Persona.arrayPersones[j].toString());
+                            }
                         }
                         jList2.setModel(d1m);
                     }catch (Exception error){

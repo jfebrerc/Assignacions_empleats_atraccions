@@ -14,6 +14,7 @@ public class Llista_empleats extends javax.swing.JFrame{
     private JList jList1;
     private JButton llistarButton;
     private JButton cancelarButton;
+    private JTextField cercaEmpleat;
     private JTable tablaEmpleats;
     private static JFrame frame_llistaEmpleats = new JFrame("llistaEmpleats");
 
@@ -42,10 +43,15 @@ public class Llista_empleats extends javax.swing.JFrame{
         llistarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String cerca = cercaEmpleat.getText();
                 DefaultListModel d1m = new DefaultListModel();
+                String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
+                String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+                d1m.addElement(titol_columna);
+                d1m.addElement(divisor);
                 for (int j = 0; j< Persona.getContador(); j++){
-                    if (Persona.arrayPersones[j] instanceof Empleat) {
-                        d1m.addElement(Persona.arrayPersones[j]);
+                    if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                        d1m.addElement(Persona.arrayPersones[j].toString());
                     }
                 }
                 jList1.setModel(d1m);

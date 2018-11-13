@@ -90,7 +90,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        String imprimir = getNom() + " " + getCognom1() + " " + getDNI();
+        String imprimir = String.format("|%-20d|", getNom()); /*getNom() + " " + getCognom1() + " " + getDNI();*/
         return imprimir;
     }
 }
