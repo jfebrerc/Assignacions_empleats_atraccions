@@ -1,11 +1,14 @@
 package Gestio.Empleats;
 
+import Biblioteques.IO;
+import Clases.Empleat;
 import Clases.Persona;
 import Main.main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ExecutionException;
 
 public class Menu_empleats {
     private JButton registrarEmpleatButton;
@@ -51,6 +54,26 @@ public class Menu_empleats {
             public void actionPerformed(ActionEvent e) {
                 frame_menuEmpleats.setVisible(false);
                 Gestio.Empleats.Modificar_empleats.Menu_modificar_empleats();
+            }
+        });
+        testButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    for (int i=0; i<3;i++){
+                        Persona.arrayPersones[i] = new Empleat();
+                        Persona.arrayPersones[i].setNom("nom"+(i+1));
+                        Persona.arrayPersones[i].setCognom1("cognom"+(i+1));
+                        Persona.arrayPersones[i].setDNI("dni"+(i+1));
+                        ((Empleat) Persona.arrayPersones[i]).setNomina("nomina"+(i+1));
+                        Persona.augmentarPersona();
+                        IO.imprimirTI(Persona.arrayPersones[i].toString());
+                    }
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "Empleats de prova carregats correctament");
+                }catch (Exception error){
+                    IO.imprimirTI("Error: " + error);
+                }
+
             }
         });
     }

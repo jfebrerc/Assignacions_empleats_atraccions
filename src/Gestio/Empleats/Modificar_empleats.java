@@ -66,6 +66,7 @@ public class Modificar_empleats extends javax.swing.JFrame{
         modificarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int empleat_back = empleat;
                 empleat--;
                 try{
                     IO.imprimirTI(""+ empleat);
@@ -74,9 +75,17 @@ public class Modificar_empleats extends javax.swing.JFrame{
                     Persona.arrayPersones[indices[empleat]].setDNI(dniField.getText());
                     ((Empleat) Persona.arrayPersones[indices[empleat]]).setNomina(nominaField.getText());
                     JOptionPane.showMessageDialog(frame_modificarEmpleats, "Empleat modificat correctament");
+                    IO.imprimirTI(""+empleat);
+                    IO.imprimirTI(""+indices[empleat]);
+                    empleat=empleat_back;
                 }catch(Exception error){
                     IO.imprimirTI("Error al modificar empleat: " + error);
                 }
+                DefaultListModel d1m = new DefaultListModel();
+                for (int j = 0; j< Persona.getContador(); j++){
+                    d1m.addElement(Persona.arrayPersones[j]);
+                }
+                Jlist3.setModel(d1m);
 
             }
         });
