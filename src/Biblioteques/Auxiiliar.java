@@ -79,6 +79,61 @@ public class Auxiiliar extends javax.swing.JFrame{
     /** FUNCIO PER A LLISTAR I BUSCAR EMPLEATS */
     public static void llistar_empleats(JTextField cercaEmpleat, JList jLlista){
         String cerca = cercaEmpleat.getText();
+        IO.imprimirTI("Cerca: " + cerca);
+        DefaultListModel d1m = new DefaultListModel();
+        String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
+        String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+        d1m.addElement(titol_columna);
+        d1m.addElement(divisor);
+        if (Persona.getContador()>15){
+            if (cerca.equals("")){
+                for (int j = 0; j< 15; j++){
+                    if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                        d1m.addElement(Persona.arrayPersones[j].toString());
+                    }
+                }
+                jLlista.setModel(d1m);
+            }else{
+                for (int j = 0; j< Persona.getContador(); j++){
+                    if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                        d1m.addElement(Persona.arrayPersones[j].toString());
+                    }
+                }
+                jLlista.setModel(d1m);
+            }
+
+        }else{
+            for (int j = 0; j< Persona.getContador(); j++){
+                if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    d1m.addElement(Persona.arrayPersones[j].toString());
+                }
+            }
+            jLlista.setModel(d1m);
+        }
+    }
+
+    public static void llistar_empleatsNoTitol(JTextField cercaEmpleat, JList jLlista){
+        String cerca = cercaEmpleat.getText();
+        DefaultListModel d1m = new DefaultListModel();
+        if (Persona.getContador()>10){
+            for (int j = 0; j< 10; j++){
+                if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    d1m.addElement(Persona.arrayPersones[j].toString());
+                }
+            }
+            jLlista.setModel(d1m);
+        }else{
+            for (int j = 0; j< Persona.getContador(); j++){
+                if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    d1m.addElement(Persona.arrayPersones[j].toString());
+                }
+            }
+            jLlista.setModel(d1m);
+        }
+    }
+
+    public static void llistar_empleatsTots(JTextField cercaEmpleat, JList jLlista) {
+        String cerca = cercaEmpleat.getText();
         DefaultListModel d1m = new DefaultListModel();
         String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
         String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -90,18 +145,5 @@ public class Auxiiliar extends javax.swing.JFrame{
             }
         }
         jLlista.setModel(d1m);
-    }
-
-    public static void llistar_empleatsNoTitol(JTextField cercaEmpleat, JList jLlista){
-        String cerca = cercaEmpleat.getText();
-        DefaultListModel d1m = new DefaultListModel();
-        for (int j = 0; j< Persona.getContador(); j++){
-            if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
-                d1m.addElement(Persona.arrayPersones[j].toString());
-            }
         }
-        jLlista.setModel(d1m);
     }
-
-
-}

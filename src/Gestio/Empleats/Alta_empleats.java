@@ -44,10 +44,13 @@ public class Alta_empleats {
                 }else {
                     try{
                         Persona.arrayPersones[Persona.getContador()] = new Empleat();
+                        Persona.arrayPersones[Persona.getContador()].setId(Persona.arrayPersones[Persona.getContador()].hashCode());
                         Persona.arrayPersones[Persona.getContador()].setNom(empleat_nom.getText());
                         Persona.arrayPersones[Persona.getContador()].setCognom1(empleat_cognoms.getText());
                         Persona.arrayPersones[Persona.getContador()].setDNI(empleats_dni.getText());
                         ((Empleat) Persona.arrayPersones[Persona.getContador()]).setNomina(empleats_nomina.getText());
+                        /** IMPRIMIR EMPLEAT REGISTRAT */
+                        IO.imprimirTI(Persona.arrayPersones[Persona.getContador()].getIdentificador()+ "\t" + Persona.arrayPersones[Persona.getContador()].toString());
                         Persona.augmentarPersona();
                         IO.imprimirTI("Se ha registrat un empleat");
 
@@ -58,13 +61,14 @@ public class Alta_empleats {
 
                         IO.imprimirTI("-------------------------------------------------------------------------");
 
-                        /** IMPRIMIR EMPLEATS (PERSONES) */
+
+                        /** IMPRIMIR EMPLEATS (PERSONES)
                         for (int i=0; i<Persona.getContador(); i++){
                             IO.imprimirTI(Persona.arrayPersones[i].getNom());
                             IO.imprimirTI(Persona.arrayPersones[i].getCognom1());
                             IO.imprimirTI(Persona.arrayPersones[i].getDNI());
                             IO.imprimirTI(((Empleat)Persona.arrayPersones[i]).getNomina());
-                        }
+                        }*/
 
                     }catch (Exception ex){
                         JOptionPane.showMessageDialog(frame_menuAltaEmpleats, "Error: S'ha produit algun tipus d'error al introduir un empleat, si tens mes problemes fica't amb contacte amb l'administrador");

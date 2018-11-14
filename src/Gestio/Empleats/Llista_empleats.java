@@ -1,5 +1,6 @@
 package Gestio.Empleats;
 
+import Biblioteques.Auxiiliar;
 import Biblioteques.IO;
 import Clases.Empleat;
 import Clases.Persona;
@@ -63,6 +64,13 @@ public class Llista_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 frame_llistaEmpleats.setVisible(false);
                 Menu_empleats.mostar_menu_empleats();
+            }
+        });
+        llistaEmpleats.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
             }
         });
     }

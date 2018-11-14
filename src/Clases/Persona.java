@@ -10,7 +10,7 @@ public class Persona {
     private String nom;
     private String cognom1;
     private String cognom2;
-    private String id;
+    private int id;
     private String passwd;
     private String DNI;
 
@@ -32,10 +32,6 @@ public class Persona {
         cognom2 = c2;
     }
 
-    public void setIdentificador(String i) {
-        id = i;
-    }
-
     public void setPasswd(String pwd) {
         passwd = pwd;
     }
@@ -46,6 +42,10 @@ public class Persona {
 
     public void setContador(int n){
         contador = contador + n;
+    }
+
+    public void setId(int n){
+        id=n;
     }
 
     /** GETTERS */
@@ -59,7 +59,7 @@ public class Persona {
         return cognom2;
     }
 
-    public String getIdentificador() {
+    public int getIdentificador() {
         return id;
     }
 

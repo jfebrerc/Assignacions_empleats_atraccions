@@ -63,18 +63,19 @@ public class Menu_empleats {
         testButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Persona.getContador()-3>=Persona.getMaximPersones()){
+                if (Persona.getContador()-40>=Persona.getMaximPersones()){
                     JOptionPane.showMessageDialog(frame_menuEmpleats, "No es poden afegir mes usuaris, fica't en contacte amb el administrador");
                 }else{
                     try{
-                        for (int i=0; i<3;i++){
+                        for (int i=Persona.getContador(); i<40;i++){
                             Persona.arrayPersones[i] = new Empleat();
+                            Persona.arrayPersones[i].setId(Persona.arrayPersones[i].hashCode());
                             Persona.arrayPersones[i].setNom("nom"+(i+1));
                             Persona.arrayPersones[i].setCognom1("cognom"+(i+1));
                             Persona.arrayPersones[i].setDNI("dni"+(i+1));
                             ((Empleat) Persona.arrayPersones[i]).setNomina("nomina"+(i+1));
                             Persona.augmentarPersona();
-                            IO.imprimirTI(Persona.arrayPersones[i].toString());
+                            IO.imprimirTI(Persona.arrayPersones[i].getIdentificador()+ "\t" + Persona.arrayPersones[i].toString());
                         }
                         JOptionPane.showMessageDialog(frame_menuEmpleats, "Empleats de prova carregats correctament");
                     }catch (Exception error){

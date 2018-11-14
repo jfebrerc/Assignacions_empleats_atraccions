@@ -6,6 +6,9 @@ import Clases.Persona;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
 import Biblioteques.IO;
 import Clases.Persona;
 import Biblioteques.Auxiiliar;
@@ -101,6 +104,13 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 frame_eliminarEmpleats.setVisible(false);
                 Menu_empleats.mostar_menu_empleats();
+            }
+        });
+        eliminarEmpleats.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
             }
         });
     }
