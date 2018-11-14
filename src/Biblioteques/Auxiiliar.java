@@ -1,8 +1,12 @@
 package Biblioteques;
 
+import Clases.Empleat;
+import Clases.Persona;
+
+import javax.swing.*;
 import java.util.Scanner;
 
-public class Auxiiliar {
+public class Auxiiliar extends javax.swing.JFrame{
     /** Funcio per a carregar els menus principals */
     public static int menu(String[] opcio, int opcions){
         Scanner sc = new Scanner(System.in);       //Inicialització del Scanner
@@ -72,5 +76,32 @@ public class Auxiiliar {
         }
         return comprovacio;
     }
+    /** FUNCIO PER A LLISTAR I BUSCAR EMPLEATS */
+    public static void llistar_empleats(JTextField cercaEmpleat, JList jLlista){
+        String cerca = cercaEmpleat.getText();
+        DefaultListModel d1m = new DefaultListModel();
+        String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
+        String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+        d1m.addElement(titol_columna);
+        d1m.addElement(divisor);
+        for (int j = 0; j< Persona.getContador(); j++){
+            if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                d1m.addElement(Persona.arrayPersones[j].toString());
+            }
+        }
+        jLlista.setModel(d1m);
+    }
+
+    public static void llistar_empleatsNoTitol(JTextField cercaEmpleat, JList jLlista){
+        String cerca = cercaEmpleat.getText();
+        DefaultListModel d1m = new DefaultListModel();
+        for (int j = 0; j< Persona.getContador(); j++){
+            if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                d1m.addElement(Persona.arrayPersones[j].toString());
+            }
+        }
+        jLlista.setModel(d1m);
+    }
+
 
 }

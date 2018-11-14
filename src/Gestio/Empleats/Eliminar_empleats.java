@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Biblioteques.IO;
-
-
+import Clases.Persona;
+import Biblioteques.Auxiiliar;
 public class Eliminar_empleats extends javax.swing.JFrame{
 
     private JPanel eliminarEmpleats;
@@ -16,15 +16,17 @@ public class Eliminar_empleats extends javax.swing.JFrame{
     private JButton llistarButton;
     private JButton eliminarButton;
     private JButton cancelarButton;
+    private JTextField cercaEmpleat;
     private static JFrame frame_eliminarEmpleats = new JFrame("eliminarEmpleats");
-    private int empleat;
-    private int [] indices;
+    //private int empleat;
+    //private int [] indices;
 
     public Eliminar_empleats() {
         llistarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DefaultListModel d1m = new DefaultListModel();
+                Biblioteques.Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
+                /*DefaultListModel d1m = new DefaultListModel();
                 String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
                 String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
                 d1m.addElement(titol_columna);
@@ -34,7 +36,7 @@ public class Eliminar_empleats extends javax.swing.JFrame{
                         d1m.addElement(Persona.arrayPersones[j].toString());
                     }
                 }
-                jList2.setModel(d1m);
+                jList2.setModel(d1m);*/
             }
         });
         eliminarButton.addActionListener(new ActionListener() {
@@ -42,11 +44,32 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 JButton eliminarButton = new JButton("Eliminar");
                 getContentPane().add(eliminarButton);
-                indices= jList2.getSelectedIndices();
+                //indices= jList2.getSelectedIndices();
+                Object indices2=jList2.getSelectedValue();
+                IO.imprimirTI("Contingut seleccio: "+ (indices2));
                 if (Persona.getContador()<=0){
                     JOptionPane.showMessageDialog(frame_eliminarEmpleats, "No hi han empleats a eliminar");
                 }else{
                     try{
+                        for (int i=0; i<Persona.getContador(); i++){
+                            if (indices2.toString().equalsIgnoreCase(Persona.arrayPersones[i].toString())){
+                                IO.imprimirTI("Eliminar index "+i);
+                                for ( int k = i ; k < Persona.getContador() - 1 ; k++)
+                                {
+                                    Persona.arrayPersones[ k ] = Persona.arrayPersones[ k + 1 ] ;
+                                }
+                                Persona.eliminarPersona();
+                                IO.imprimirTI("Empleat eliminat.");
+                                JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
+                                Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
+                            }
+                        }
+
+                    }catch (Exception error){
+                        IO.imprimirTI("Error: "+error);
+                    }
+
+                    /*try{
 
                         for(empleat=0;empleat<indices.length;empleat++){
                             IO.imprimirTI("Index empleats: " + indices[empleat]);
@@ -68,7 +91,7 @@ public class Eliminar_empleats extends javax.swing.JFrame{
                         jList2.setModel(d1m);
                     }catch (Exception error){
                         IO.imprimirTI("Error: " + error);
-                    }
+                    }*/
                 }
 
             }
@@ -88,6 +111,5 @@ public class Eliminar_empleats extends javax.swing.JFrame{
         frame_eliminarEmpleats.pack();
         frame_eliminarEmpleats.setVisible(true);
         frame_eliminarEmpleats.setLocationRelativeTo(null);
-
     }
 }

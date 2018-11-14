@@ -43,7 +43,8 @@ public class Llista_empleats extends javax.swing.JFrame{
         llistarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cerca = cercaEmpleat.getText();
+                Biblioteques.Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
+                /*String cerca = cercaEmpleat.getText();
                 DefaultListModel d1m = new DefaultListModel();
                 String titol_columna = String.format("%s %71s %69s %71s", "NOM", "COGNOM", "DNI", "NOMINA");
                 String divisor = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -54,7 +55,7 @@ public class Llista_empleats extends javax.swing.JFrame{
                         d1m.addElement(Persona.arrayPersones[j].toString());
                     }
                 }
-                jList1.setModel(d1m);
+                jList1.setModel(d1m);*/
             }
         });
         cancelarButton.addActionListener(new ActionListener() {
