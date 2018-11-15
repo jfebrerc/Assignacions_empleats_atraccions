@@ -88,25 +88,35 @@ public class Auxiiliar extends javax.swing.JFrame{
         if (Persona.getContador()>15){
             if (cerca.equals("")){
                 for (int j = 0; j< 15; j++){
-                    if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    if (Persona.arrayPersones[j] instanceof  Empleat && Persona.arrayPersones[j].toString().toLowerCase().contains(cerca.toLowerCase())){
                         d1m.addElement(Persona.arrayPersones[j].toString());
                     }
+                    /*if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                        d1m.addElement(Persona.arrayPersones[j].toString());
+                    }*/
                 }
                 jLlista.setModel(d1m);
             }else{
                 for (int j = 0; j< Persona.getContador(); j++){
-                    if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    if (Persona.arrayPersones[j] instanceof  Empleat && Persona.arrayPersones[j].toString().toLowerCase().contains(cerca.toLowerCase())){
                         d1m.addElement(Persona.arrayPersones[j].toString());
                     }
                 }
+                    /*if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                        d1m.addElement(Persona.arrayPersones[j].toString());
+                    }
+                }*/
                 jLlista.setModel(d1m);
             }
 
         }else{
             for (int j = 0; j< Persona.getContador(); j++){
-                if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                if (Persona.arrayPersones[j] instanceof  Empleat && Persona.arrayPersones[j].toString().toLowerCase().contains(cerca.toLowerCase())){
                     d1m.addElement(Persona.arrayPersones[j].toString());
                 }
+                /*if (Persona.arrayPersones[j] instanceof Empleat && Persona.arrayPersones[j].getNom().contains(cerca) || Persona.arrayPersones[j].getCognom1().contains(cerca) || Persona.arrayPersones[j].getDNI().contains(cerca) || ((Empleat) Persona.arrayPersones[j]).getNomina().contains(cerca)) {
+                    d1m.addElement(Persona.arrayPersones[j].toString());
+                }*/
             }
             jLlista.setModel(d1m);
         }

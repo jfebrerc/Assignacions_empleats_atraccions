@@ -25,7 +25,7 @@ public class Modificar_empleats extends javax.swing.JFrame{
     private JTextField cercaEmpleat;
     private static JFrame frame_modificarEmpleats = new JFrame("modificarEmpleats");
     private Object indices2;
-    private int seleccio;
+    private int seleccio = -1;
 
     public Modificar_empleats()  {
         llistarButton.addActionListener(new ActionListener() {
@@ -101,19 +101,24 @@ public class Modificar_empleats extends javax.swing.JFrame{
         modificarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    IO.imprimirTI("Element seleccionat: "+seleccio);
-                    Persona.arrayPersones[seleccio].setNom(nomField.getText());
-                    Persona.arrayPersones[seleccio].setCognom1(cognomField.getText());
-                    Persona.arrayPersones[seleccio].setDNI(dniField.getText());
-                    ((Empleat) Persona.arrayPersones[seleccio]).setNomina(nominaField.getText());
-                    JOptionPane.showMessageDialog(frame_modificarEmpleats, "Empleat modificat correctament");
+                if (seleccio==-1){
+                    JOptionPane.showMessageDialog(frame_modificarEmpleats, "Carrega un empleat per a modificar");
+                }else{
+                    try{
+                        IO.imprimirTI("Element seleccionat: "+seleccio);
+                        Persona.arrayPersones[seleccio].setNom(nomField.getText());
+                        Persona.arrayPersones[seleccio].setCognom1(cognomField.getText());
+                        Persona.arrayPersones[seleccio].setDNI(dniField.getText());
+                        ((Empleat) Persona.arrayPersones[seleccio]).setNomina(nominaField.getText());
+                        JOptionPane.showMessageDialog(frame_modificarEmpleats, "Empleat modificat correctament");
 
-                    Auxiiliar.llistar_empleats(cercaEmpleat, Jlist3);
+                        Auxiiliar.llistar_empleats(cercaEmpleat, Jlist3);
 
-                }catch (Exception error){
-                    IO.imprimirTI("Error: "+error);
+                    }catch (Exception error){
+                        IO.imprimirTI("Error: "+error);
+                    }
                 }
+
 
 
 

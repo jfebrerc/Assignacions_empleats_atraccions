@@ -42,22 +42,52 @@ public class Menu_empleats {
         llistarEmpleatsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame_menuEmpleats.setVisible(false);
-                Gestio.Empleats.Llista_empleats.Menu_llista_empleats();
+                int num_empleats = 0;
+                for (int j = 0; j< Persona.getContador(); j++){
+                    if (Persona.arrayPersones[j] instanceof Empleat){
+                        num_empleats++;
+                    }
+                }
+                if (num_empleats<1){
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "No hi han empleats registrats");
+                }else{
+                    frame_menuEmpleats.setVisible(false);
+                    Gestio.Empleats.Llista_empleats.Menu_llista_empleats();
+                }
             }
         });
         eliminarEmpleatsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame_menuEmpleats.setVisible(false);
-                Gestio.Empleats.Eliminar_empleats.Menu_eliminar_empleats();
+                int num_empleats = 0;
+                for (int j = 0; j< Persona.getContador(); j++){
+                    if (Persona.arrayPersones[j] instanceof Empleat){
+                        num_empleats++;
+                    }
+                }
+                if (num_empleats<1){
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "No hi han empleats registrats");
+                }else{
+                    frame_menuEmpleats.setVisible(false);
+                    Gestio.Empleats.Eliminar_empleats.Menu_eliminar_empleats();
+                }
             }
         });
         modificarEmpleatsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame_menuEmpleats.setVisible(false);
-                Gestio.Empleats.Modificar_empleats.Menu_modificar_empleats();
+                int num_empleats = 0;
+                for (int j = 0; j< Persona.getContador(); j++){
+                    if (Persona.arrayPersones[j] instanceof Empleat){
+                        num_empleats++;
+                    }
+                }
+                if (num_empleats<1){
+                    JOptionPane.showMessageDialog(frame_menuEmpleats, "No hi han empleats registrats");
+                }else{
+                    frame_menuEmpleats.setVisible(false);
+                    Gestio.Empleats.Modificar_empleats.Menu_modificar_empleats();
+                }
             }
         });
         testButton.addActionListener(new ActionListener() {
