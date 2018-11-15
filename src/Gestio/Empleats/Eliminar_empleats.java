@@ -50,63 +50,42 @@ public class Eliminar_empleats extends javax.swing.JFrame{
                 //indices= jList2.getSelectedIndices();
                 Object indices2=jList2.getSelectedValue();
                 IO.imprimirTI("Contingut seleccio: "+ (indices2));
-                if (Persona.getContador()<=0){
-                    JOptionPane.showMessageDialog(frame_eliminarEmpleats, "No hi han empleats a eliminar");
-                }else{
-                    try{
-                        int dialogButton = JOptionPane.YES_NO_OPTION;
-                        int dialogResult = JOptionPane.showConfirmDialog(null, "Estas segur de que vols eliminar el empleat?", "CONFIRMACIO", dialogButton);
-                        if(dialogResult == 0) {
-                            IO.imprimirTI("Opcio 'SI'");
-                            for (int i=0; i<Persona.getContador(); i++){
-                                if (indices2.toString().equalsIgnoreCase(Persona.arrayPersones[i].toString())){
-                                    IO.imprimirTI("Eliminar index "+i);
-                                    for ( int k = i ; k < Persona.getContador() - 1 ; k++)
-                                    {
-                                        Persona.arrayPersones[ k ] = Persona.arrayPersones[ k + 1 ] ;
+                if (indices2 == null){
+                    JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Selecciona un empleat");
+                }else {
+                    if (Persona.getContador()<=0){
+                        JOptionPane.showMessageDialog(frame_eliminarEmpleats, "No hi han empleats a eliminar");
+                    }else{
+                        try{
+                            int dialogButton = JOptionPane.YES_NO_OPTION;
+                            int dialogResult = JOptionPane.showConfirmDialog(null, "Estas segur de que vols eliminar el empleat?", "CONFIRMACIO", dialogButton);
+                            if(dialogResult == 0) {
+                                IO.imprimirTI("Opcio 'SI'");
+                                for (int i=0; i<Persona.getContador(); i++){
+                                    if (indices2.toString().equalsIgnoreCase(Persona.arrayPersones[i].toString())){
+                                        IO.imprimirTI("Eliminar index "+i);
+                                        for ( int k = i ; k < Persona.getContador() - 1 ; k++)
+                                        {
+                                            Persona.arrayPersones[ k ] = Persona.arrayPersones[ k + 1 ] ;
+                                        }
+                                        Persona.eliminarPersona();
+                                        IO.imprimirTI("Empleat eliminat.");
+                                        JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
+                                        Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
                                     }
-                                    Persona.eliminarPersona();
-                                    IO.imprimirTI("Empleat eliminat.");
-                                    JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
-                                    Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
                                 }
+                            } else {
+                                IO.imprimirTI("Opcio 'NO'");
                             }
-                        } else {
-                            IO.imprimirTI("Opcio 'NO'");
+
+
+
+                        }catch (Exception error){
+                            IO.imprimirTI("Error: "+error);
                         }
-
-
-
-                    }catch (Exception error){
-                        IO.imprimirTI("Error: "+error);
                     }
-
-                    /*try{
-
-                        for(empleat=0;empleat<indices.length;empleat++){
-                            IO.imprimirTI("Index empleats: " + indices[empleat]);
-                            for ( int i = indices[empleat] ; i < Persona.getContador() - 1 ; i++ )
-                            {
-                                Persona.arrayPersones[ i ] = Persona.arrayPersones[ i + 1 ] ;
-                            }
-                            IO.imprimirTI("Empleat eliminat.");
-                            Persona.eliminarPersona();
-                        }
-                        JOptionPane.showMessageDialog(frame_eliminarEmpleats, "Empleat eliminat correctament");
-
-                        DefaultListModel d1m = new DefaultListModel();
-                        for (int j = 0; j< Persona.getContador(); j++){
-                            if (Persona.arrayPersones[j] instanceof Empleat) {
-                                d1m.addElement(Persona.arrayPersones[j].toString());
-                            }
-                        }
-                        jList2.setModel(d1m);
-                    }catch (Exception error){
-                        IO.imprimirTI("Error: " + error);
-                    }*/
                 }
-
-            }
+                            }
         });
         cancelarButton.addActionListener(new ActionListener() {
             @Override
