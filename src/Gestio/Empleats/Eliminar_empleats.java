@@ -4,6 +4,8 @@ import Clases.Empleat;
 import Clases.Persona;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -98,6 +100,22 @@ public class Eliminar_empleats extends javax.swing.JFrame{
             @Override
             public void componentResized(ComponentEvent e) {
                 super.componentResized(e);
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
+            }
+        });
+        cercaEmpleat.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
                 Auxiiliar.llistar_empleats(cercaEmpleat, jList2);
             }
         });

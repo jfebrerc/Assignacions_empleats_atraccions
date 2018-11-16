@@ -4,6 +4,8 @@ import Clases.Empleat;
 import Clases.Persona;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.util.Scanner;
 
 public class Auxiiliar extends javax.swing.JFrame{
@@ -87,7 +89,7 @@ public class Auxiiliar extends javax.swing.JFrame{
         d1m.addElement(divisor);
         if (Persona.getContador()>15){
             if (cerca.equals("")){
-                for (int j = 0; j< 15; j++){
+                for (int j = 0; j< 100; j++){
                     if (Persona.arrayPersones[j] instanceof  Empleat && Persona.arrayPersones[j].toString().toLowerCase().contains(cerca.toLowerCase())){
                         d1m.addElement(Persona.arrayPersones[j].toString());
                     }

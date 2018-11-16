@@ -93,11 +93,11 @@ public class Menu_empleats {
         testButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Persona.getContador()-40>=Persona.getMaximPersones()){
+                if (Persona.getContador()-200>=Persona.getMaximPersones()){
                     JOptionPane.showMessageDialog(frame_menuEmpleats, "No es poden afegir mes usuaris, fica't en contacte amb el administrador");
                 }else{
                     try{
-                        for (int i=Persona.getContador(); i<40;i++){
+                        for (int i=Persona.getContador(); i<200;i++){
                             Persona.arrayPersones[i] = new Empleat();
                             Persona.arrayPersones[i].setId(Persona.arrayPersones[i].hashCode());
                             Persona.arrayPersones[i].setNom("nom"+(i+1));

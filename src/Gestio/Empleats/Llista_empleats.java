@@ -6,6 +6,8 @@ import Clases.Empleat;
 import Clases.Persona;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
@@ -73,5 +75,23 @@ public class Llista_empleats extends javax.swing.JFrame{
                 Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
             }
         });
+
+        cercaEmpleat.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                Auxiiliar.llistar_empleats(cercaEmpleat, jList1);
+            }
+        });
+
     }
 }
