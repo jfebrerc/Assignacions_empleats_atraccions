@@ -19,6 +19,7 @@ public class Menu_empleats {
     private JButton sortirButton;
     private JPanel panelEmpleats;
     private static JFrame frame_menuEmpleats = new JFrame("Menu_empleats");
+    final int empleats_tests_carregats = 1000;
 
     public Menu_empleats() {
         sortirButton.addActionListener(new ActionListener() {
@@ -93,11 +94,11 @@ public class Menu_empleats {
         testButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Persona.getContador()-200>=Persona.getMaximPersones()){
+                if (Persona.getContador()+empleats_tests_carregats>Persona.getMaximPersones()){
                     JOptionPane.showMessageDialog(frame_menuEmpleats, "No es poden afegir mes usuaris, fica't en contacte amb el administrador");
                 }else{
                     try{
-                        for (int i=Persona.getContador(); i<200;i++){
+                        for (int i=Persona.getContador(); i<empleats_tests_carregats;i++){
                             Persona.arrayPersones[i] = new Empleat();
                             Persona.arrayPersones[i].setId(Persona.arrayPersones[i].hashCode());
                             Persona.arrayPersones[i].setNom("nom"+(i+1));
